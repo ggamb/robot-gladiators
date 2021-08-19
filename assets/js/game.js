@@ -1,7 +1,3 @@
-var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
-var enemyHealth = 50;
-var enemyAttack = 12;
-
 var fight = function(enemy) {
   while (playerInfo.health > 0 && enemy.health > 0) {
     // ask player if they'd like to fight or run
@@ -67,11 +63,24 @@ var randomNumber = function (min, max) {
   return value;
 }
 
+var getPlayerName = function() {
+  var name = "";
+
+  while(name === "" || name ===null){
+    name = window.prompt("What is your robot's name?");
+  }
+
+
+  console.log("Your robot's name is " + name);
+
+  return name;
+}
+
 var playerInfo = {
-  name: window.prompt("What is your robot's name?"),
+  name: getPlayerName(),
   health: 100,
   attack: 10,
-  money: 10
+  money: 10,
   reset: function() {
     this.health = 100;
     this.money = 10;
